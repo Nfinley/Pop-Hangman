@@ -1,0 +1,106 @@
+
+/*
+
+font-family: 'Raleway', sans-serif;
+font-family: 'Reem Kufi', sans-serif;
+font-family: 'Bungee Inline', cursive;
+font-family: 'Candal', sans-serif;
+font-family: 'Permanent Marker', cursive;
+
+*/
+
+body {
+	font-family: 'Permanent Marker', cursive;
+}
+
+.jumbotron {
+	background-color: transparent;	
+	text-align: center;
+}
+
+.jumbotron h1 {
+	color: red;
+
+}
+
+/*h1 , .lossesStyle, .winsStyle, .modal {
+	font-family: 'Permanent Marker', cursive;
+
+}*/
+
+.panel {
+	background-color: rgb(204,204,204);
+	background-color: rgba(204,204,204, .9);
+	height: 500px;
+	color: ;
+}
+/*Try and fix the panel heading to be transparent*/
+.panel-heading {
+	background-color: rgb(204,204,204);
+	background-color: rgba(204,204,204, .6);
+}
+
+.guessed, .remaining {
+	text-align: center;
+}
+/*getting overridden and not working*/
+/*.winsPanel, .lossPanel {
+		height: 100px;
+}*/
+
+#imageHolder {
+	height: 200px;
+	width:300px;
+}
+/*styles the blank letter spaces with a border bottom*/
+#guessBlanks{
+	
+	text-align: center;
+
+}
+/*Styles the word letters. Also look at putting in percentages for responsiveness*/
+#guessBlanks p {
+	border-bottom: solid 2px red;
+	font-size: 60px;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 75px;
+	width: 45px;
+	display: inline-block;
+
+}
+.lossesStyle, .winsStyle {
+	font-size: 20px;
+	text-align: center;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.modal {
+	margin-top: 10%;
+	vertical-align: middle;
+
+}
+
+.modal-header {
+	height: 200px;
+	padding-top: 50px;
+	/*should make the text vertically aligned to the middle*/
+
+}
+.modal-title {
+		font-size: 25px;
+}
+
+/*not working right now*/
+#lettersGuessed, #guessesRemaining {
+	
+
+}
+/*.modal-content {
+	height: 200px;
+}*/

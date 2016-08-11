@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title> Hangman - Geuss Pop Stars from the 2000s</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Candal|Permanent+Marker|Raleway:500|Reem+Kufi" rel="stylesheet">
+ -->
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <!-- import google fonts -->
+</head>
+
+<body>
+    <!-- Game play should start with the modal -->
+    <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button> -->
+                    <h4 class="modal-title text-center">Welcome to Hangman: Pop Stars of the 2000's!</h4>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center">Press Any Key To Play!</p>
+                </div>
+                <!--  <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>POP Stars of the 2000s Hangman</h1>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2 col-lg-2 winsPanel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="winsStyle"> Wins
+                            <div id="wins"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="col-md-8 col-lg-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Play Hangman!</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                              <div class="col-sm-12 col-md-12 col-lg-12">
+                                <p> </p>
+                            <div id="imageHolder"> 
+                            <!-- This is where the string of letters guessed will go -->
+
+                            </div> 
+                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                <div id="guessBlanks">
+                                <!-- Where the generated word lives -->
+                                <!-- <span>x</span>
+                                <span>x</span>
+                                <span>x</span>
+                                <span>x</span> -->
+                                </div>
+                           
+                             </div>    
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 guessed">
+                                <p> Incorrect Guesses: </p>
+                            <div id="incorrectGuesses"> 
+                            <!-- This is where the string of letters guessed will go -->
+
+                            </div>
+
+                            </div>
+                             <div class="col-sm-12 col-md-12 col-lg-12 remaining">
+                                <p> Number of guesses remaining: </p>
+                            <div id="guessesRemaining"> 
+                            <!-- This is where the string of letters guessed will go -->
+
+                            </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="col-md-2 col-lg-2 lossPanel">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="lossesStyle"> Losses
+                            <div id="losses"> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
+        </script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="assets/javascript/game.js"></script>
+        <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            $.backstretch([
+                "assets/images/bg-music.jpg", "assets/images/bg-guitar2.jpg", "assets/images/bg-acoustic.jpg", "assets/images/bg-piano.jpg", "assets/images/bg-bass.jpg"
+            ], {
+                duration: 3000,
+                fade: 750
+            });
+        });
+        </script>
+</body>
+
+</html>
