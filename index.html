@@ -48,9 +48,11 @@
     </div>
     <!-- /.modal -->
     <div class="jumbotron">
-        <div class="container">
-            <h1>POP Stars of the 2000's</h1>
-            <h3>Hangman!</h3>
+        <div class="container content-cont">
+            <div class=text-body>
+                <h1>POP Stars of the 2000's</h1>
+                <h3>Hangman!</h3>
+            </div>
         </div>
     </div>
     <div class="container-fluid">
@@ -129,6 +131,9 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
         <script type="text/javascript" src="assets/javascript/game.js"></script>
         <script type="text/javascript" src="assets/javascript/javascript.js"></script>
+        <script type="text/javascript">
+            $('.content-cont').find('h1').append('<div class="shine one"></div><div class="shine two"></div><div class="shine three"></div><div class="shine four"></div><div class="shine five"></div>');  
+        </script>
         <script type="text/javascript">
         $(document).ready(function() {
             $.backstretch([
