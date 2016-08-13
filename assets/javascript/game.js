@@ -50,7 +50,9 @@ var game = {
         'RADIOHEAD': '', 'MGMT': '', 'BIEBER':''},
 
 // stores the link to the correct guess sound
-    correctAudioLinkArray: ['assets/audio/victoryismine.mp3', 'assets/audio/whahey.mp3'],
+    correctAudioLinkArray: ['assets/audio/victoryismine.mp3', 'assets/audio/whahey.mp3', 'assets/audio/hallelujah.mp3', 'assets/audio/correctamundo.mp3', 'assets/audio/yes!.mp3'],
+
+    inCorrectAudioLinkArray: ['assets/audio/doh.mp3', 'assets/audio/nodear.mp3', 'assets/audio/ohcrap.mp3', 'assets/audio/tryforget.mp3', 'assets/audio/nonotgonna.mp3'],
 
     // The word chosen by the computer at random from the masterAnswerArray
     initialPick: "",
@@ -93,8 +95,13 @@ var game = {
         return this.masterAnswerArray[Math.floor(Math.random() * this.masterAnswerArray.length)];
     },
 
+    // picks at random a sound to play when user selects the correct letter
     correctSoundPick: function () {
         return this.correctAudioLinkArray[Math.floor(Math.random() * this.correctAudioLinkArray.length)];
+    },
+    // picks at random a sound to play when user selects the incorrect letter
+      inCorrectSoundPick: function () {
+        return this.inCorrectAudioLinkArray[Math.floor(Math.random() * this.inCorrectAudioLinkArray.length)];
     },
 
     // console.log shortcut
@@ -123,12 +130,10 @@ var game = {
         // return i;
 
     },
-    // This is the game start function that is recalled in the beginning and after correct guess
+    // This is the game start function that is recalled in the beginning and after correct or incorrect word guess
     gameStart: function(){
             $('#guessBlanks').empty();
             $('#incorrectGuesses').empty();
-            // $('#guessesRemaining').html('');
-            
             game.initialPick = "";
             game.userGuess = [];
             game.incorrectGuessArray =[];
@@ -155,10 +160,17 @@ var game = {
 
             // create the blank place holders for the word
             game.createGuessBlanks('#guessBlanks', game.currentAnswerArray);
-            // logs 'guessblanks + the current word'
+            // logs 'guessblanks + the current word' to show length of blank spaces on html
             game.log('#guessBlanks on html page: ' + game.currentAnswerArray);
 
     }
+
+    // gameOver: funtion() {
+    //     if(game.masterAnswerArray.length == -1) {
+    //                 alert("Congratulations You HAVE WON THE ENTIRE GAME!");
+    //                 game.log("Last alert game with the lenght of: " + game.masterAnswerArray.length);
+    //             }
+    // }
     // generates a random correct sound
     // getCorrectSound: function() {
     //     return this.correctAudioLinkArray[Math.floor(Math.random() * this.correctAudioLinkArray.length)];
@@ -246,7 +258,7 @@ $(document).ready(function() {
                     // $('#guessesRemaining span').text(game.incorrectGuessLimit);
                     // When a letter is guessed wrong a sound plays
                     var audioElementWrong = document.createElement('audio');
-                    audioElementWrong.setAttribute('src', 'assets/audio/ohcrap.mp3');
+                    audioElementWrong.setAttribute('src', game.inCorrectSoundPick());
                     audioElementWrong.play();
                     game.log("wong answer");
                 }
@@ -306,10 +318,6 @@ $(document).ready(function() {
                     game.gameStart();
                     game.log("Entered game reset areaup");
 
-                }
-                if(game.masterAnswerArray.length == -1) {
-                    alert("Congratulations You HAVE WON THE ENTIRE GAME!")
-                    game.log("Last alert game with the lenght of: " + game.masterAnswerArray.length);
                 }
                 
                 // To re-initialize call up the document.onkeyup event
