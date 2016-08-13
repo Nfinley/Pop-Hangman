@@ -25,15 +25,18 @@
 //Look at all elements we worked on in class on Monday
 
 /* TO DO: 
-    1. Main to do is to get it to loop. 
-    2. Then to figure out how to add the video after a win and replace existing
+    1. 
+    2. add additional correct and incorrect sounds
+    3. create a button after the win to play again
+    -add images to win names
+    3. Then to figure out how to add the video after a win and replace existing
     3. The win sound also happens after click ok on alert box - check this.
-    4. Update the color of the heading
     5. Add the video or image and soung to play at the end (maybe create an object to store the association between the videos and the word)
     6. Dynamically update all html using Javascript instead of jQuery - replace all curreny jQuery with Javascript
     7. Validate all code
-    8. Create button to ask if user wants to play again. 
-    9. Ask Eric about how he pulled the random videos and sho him function and current guess array and how he created his button
+    8. Fix the blank line issue
+   
+    
 */
 
 // The object that stores all of the game variables and functions
@@ -47,7 +50,7 @@ var game = {
         'RADIOHEAD': '', 'MGMT': '', 'BIEBER':''},
 
 // stores the link to the correct guess sound
-    // correctAudioLinkArray: ['assets/audio/victoryismine.mp3', 'assets/audio/whahey.mp3'],
+    correctAudioLinkArray: ['assets/audio/victoryismine.mp3', 'assets/audio/whahey.mp3'],
 
     // The word chosen by the computer at random from the masterAnswerArray
     initialPick: "",
@@ -90,6 +93,10 @@ var game = {
         return this.masterAnswerArray[Math.floor(Math.random() * this.masterAnswerArray.length)];
     },
 
+    correctSoundPick: function () {
+        return this.correctAudioLinkArray[Math.floor(Math.random() * this.correctAudioLinkArray.length)];
+    },
+
     // console.log shortcut
     log: function(msg) {
         console.log(msg + "\n");
@@ -114,6 +121,42 @@ var game = {
         return $.unique(arrayOfLetters).length;
         // var i = arrayOfLetters.length;
         // return i;
+
+    },
+    // This is the game start function that is recalled in the beginning and after correct guess
+    gameStart: function(){
+            $('#guessBlanks').empty();
+            $('#incorrectGuesses').empty();
+            // $('#guessesRemaining').html('');
+            
+            game.initialPick = "";
+            game.userGuess = [];
+            game.incorrectGuessArray =[];
+            game.incorrectGuessLimit = 8;
+            game.correctGuessArray = [];
+            $('#guessesRemaining span').html(game.incorrectGuessLimit);
+            //hide the modal when user presses a key
+            $('#myModal').modal('hide');
+            //This stores a random string from masterAnswerArray into initial pick dynamically
+            game.initialPick = game.randomPick();
+            // logs the initial randomly selected word
+            game.log("initial word: " + game.initialPick);
+
+            // Take the initialPick string and turn it into an array of letters in currentAnswerArray
+            game.currentAnswerArray = game.initialPick.split("");
+            // logs the currentAnswerArray 
+            game.log("currentAnswerArray: " + game.currentAnswerArray);
+
+            // log all of the words still in the master array
+            game.log("masterAnswerArray: " + game.masterAnswerArray);
+
+            // initializes the clone of current answer in order to ensure separate memory storage for recall later
+            game.alternateAnswerArray = game.initialPick.split("");
+
+            // create the blank place holders for the word
+            game.createGuessBlanks('#guessBlanks', game.currentAnswerArray);
+            // logs 'guessblanks + the current word'
+            game.log('#guessBlanks on html page: ' + game.currentAnswerArray);
 
     }
     // generates a random correct sound
@@ -142,28 +185,7 @@ $(document).ready(function() {
 
         //Callin the boolean value of true and it is true when the user hits a keystroke
         if (game.initialInput) {
-            //hide the modal when user presses a key
-            $('#myModal').modal('hide');
-            //This stores a random string from masterAnswerArray into initial pick dynamically
-            game.initialPick = game.randomPick();
-            // logs the initial randomly selected word
-            game.log("initial word: " + game.initialPick);
-
-            // Take the initialPick string and turn it into an array of letters in currentAnswerArray
-            game.currentAnswerArray = game.initialPick.split("");
-            // logs the currentAnswerArray 
-            game.log("currentAnswerArray: " + game.currentAnswerArray);
-
-            // log all of the words still in the master array
-            game.log("masterAnswerArray: " + game.masterAnswerArray);
-
-            // initializes the clone of current answer in order to ensure separate memory storage for recall later
-            game.alternateAnswerArray = game.initialPick.split("");
-
-            // create the blank place holders for the word
-            game.createGuessBlanks('#guessBlanks', game.currentAnswerArray);
-            // logs 'guessblanks + the current word'
-            game.log('#guessBlanks on html page: ' + game.currentAnswerArray);
+            game.gameStart();
 
 
             game.initialInput = false;
@@ -194,7 +216,7 @@ $(document).ready(function() {
 
                     // creates an audio element and plays a sound when guessing correct letter
                     var audioElementRight = document.createElement('audio');
-                    audioElementRight.setAttribute('src', 'assets/audio/victoryismine.mp3');
+                    audioElementRight.setAttribute('src', game.correctSoundPick());
                     audioElementRight.play();
                     game.log("Victory is mine has just played");
                     // if the guess is incorrect this statement is true and it keepsl looping
@@ -259,13 +281,13 @@ $(document).ready(function() {
                 // Put up a video that ties the correct guess on the screen
                 //Use current answer array to look into videoClips array to find a match and then use 
                 // maseterVideoClips.correctVideoClip
-                var correctVideoClip = game.masterVideoClips.indexOf(game.currentAnswerArray);
-                game.log("Video clip should equal eachother: " + correctVideoClip + ' ' + currentAnswerArray);
+                // var correctVideoClip = game.masterVideoClips.indexOf(game.currentAnswerArray);
+                // game.log("Video clip should equal eachother: " + correctVideoClip + ' ' + currentAnswerArray);
                 // var playVideo = document.createElement('iframe');
                 //     playVideo.setAttribute('src', 'game.masterVideoClips.correctVideoClips');
                 //     playVideo.play();
                 // Also need to insert the video and autoplay
-
+                // Dynamically
 
                 // the .splice function removes an element from an array. The '1' within the function refers to how many indexes to pull
                 var removeIndex = game.masterAnswerArray.indexOf(game.initialPick);
@@ -280,12 +302,12 @@ $(document).ready(function() {
                 // }
 
                 // If something left in master array choose another word to play and re-initialize 
-                // if(game.masterAnswerArray.length > -1){
-                //     onkeyup(event);
-                //     game.log("On key up worked if here")
+                if(game.masterAnswerArray.length > -1){
+                    game.gameStart();
+                    game.log("Entered game reset areaup");
 
-                //     }
-                // }
+                    };
+                
                 // To re-initialize call up the document.onkeyup event
 
 
@@ -298,7 +320,11 @@ $(document).ready(function() {
                 document.querySelector('#losses span').innerHTML = game.losses;
 
                 // If completly gets this wrong re-initialize without removing the word from master array
+                if(game.masterAnswerArray.length > -1){
+                    game.gameStart();
+                    game.log("Entered game reset areaup");
 
+                    };
             }
 
         }

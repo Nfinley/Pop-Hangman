@@ -112,6 +112,11 @@ video {
 	display: inline-block;
 
 }
+
+#playAgainButton {
+  padding-top: 20px;
+    text-align: center;
+}
 .lossesStyle, .winsStyle {
 	font-size: 40px;
 	text-align: center;
@@ -140,6 +145,9 @@ video {
 .modal-title {
 		font-size: 25px;
 }
+
+
+/*Styling for the header to display shimerring objects*/
 .text-body {
   position: relative;
   display: inline-block;
@@ -171,8 +179,8 @@ video {
 }
 
 .text-body .shine.one {
-  top: 15%;
-  left: 4%;
+  top: 25%;
+  left: 1%;
   -webkit-animation: shine1 1000ms alternate infinite;
           animation: shine1 1000ms alternate infinite;
 }
@@ -183,20 +191,27 @@ video {
           animation: shine1 1500ms alternate infinite;
 }
 .text-body .shine.three {
-  top: 15%;
+  top: 30%;
   left: 40%;
   -webkit-animation: shine1 1700ms alternate infinite;
           animation: shine1 1700ms alternate infinite;
 }
 .text-body .shine.four {
-  top: 15%;
-  left: 80%;
+  top: 45%;
+  left: 68%;
   -webkit-animation: shine1 900ms alternate infinite;
           animation: shine1 900ms alternate infinite;
 }
 .text-body .shine.five {
-  top: 55%;
-  left: 95%;
+  top: 65%;
+  left: 98%;
+  -webkit-animation: shine1 1300ms alternate infinite;
+          animation: shine1 1300ms alternate infinite;
+  }
+
+  .text-body .shine.six {
+  top: 25%;
+  left: 55%%;
   -webkit-animation: shine1 1300ms alternate infinite;
           animation: shine1 1300ms alternate infinite;
 }
