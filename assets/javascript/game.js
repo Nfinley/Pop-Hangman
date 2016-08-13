@@ -306,7 +306,11 @@ $(document).ready(function() {
                     game.gameStart();
                     game.log("Entered game reset areaup");
 
-                    };
+                }
+                if(game.masterAnswerArray.length == -1) {
+                    alert("Congratulations You HAVE WON THE ENTIRE GAME!")
+                    game.log("Last alert game with the lenght of: " + game.masterAnswerArray.length);
+                }
                 
                 // To re-initialize call up the document.onkeyup event
 
