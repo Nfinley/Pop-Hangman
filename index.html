@@ -21,6 +21,7 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Bungee+Inline|Candal|Permanent+Marker|Raleway:500|Reem+Kufi" rel="stylesheet">
  -->
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC" rel="stylesheet">
     <!-- import google fonts -->
 </head>
 
@@ -46,10 +47,10 @@
         <!-- /.modal-dialog -->
     </div>
     <!-- /.modal -->
-    </div>
     <div class="jumbotron">
         <div class="container">
-            <h1>POP Stars of the 2000s Hangman</h1>
+            <h1>POP Stars of the 2000's</h1>
+            <h3>Hangman!</h3>
         </div>
     </div>
     <div class="container-fluid">
@@ -57,61 +58,64 @@
             <div class="col-md-2 col-lg-2 winsPanel">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="winsStyle"> Wins
-                            <div id="wins"> </div>
+                        <div class="winsStyle">
+                            <h1>Wins</h1>
+                            <div id="wins"> <span>0</span></div>
                         </div>
                     </div>
                 </div>
             </div>
-            <section class="col-md-8 col-lg-8">
+            <section class="col-md-8 col-lg-8 gamePanel">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">Play Hangman!</h3>
+                        <h3 class="panel-title">Game Time</h3>
                     </div>
                     <div class="panel-body">
                         <div class="row">
-                              <div class="col-sm-12 col-md-12 col-lg-12">
-                                <p> </p>
-                            <div id="imageHolder"> 
-                            <!-- This is where the string of letters guessed will go -->
-
-                            </div> 
+                            <div class="col-sm-3 col-md-3 col-lg-3 guessed">
+                                <p> Incorrect Guesses: </p>
+                                <div id="incorrectGuesses">
+                                    <!-- This is where the string of letters guessed will go -->
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6 text-center">
+                                <div id="imageHolder">
+                                    <!-- This is where the videos will go -->
+                                    <video class="center-block" preload="true" autoplay loop volume="0" poster="assets/images/headervinyl.png">
+                                        <source src="assets/video/headervinyl.mp4" type="video/mp4">
+                                        <source src="assets/headervinyl.webm" type="video/webm">
+                                        <source src="assets/headervinyl.ogv" type="video/ogg">
+                                    </video>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 col-md-3 col-lg-3 remaining">
+                                <p> Guesses remaining: </p>
+                                <div id="guessesRemaining"> <span>8</span>
+                                    <!-- This is where the string of letters guessed will go -->
+                                </div>
+                            </div>
+                        </div>
+                        <div clas="row">
                             <div class="col-sm-12 col-md-12 col-lg-12">
                                 <div id="guessBlanks">
-                                <!-- Where the generated word lives -->
-                                <!-- <span>x</span>
+                                    <!-- Where the generated word lives -->
+                                    <!-- <span>x</span>
                                 <span>x</span>
                                 <span>x</span>
                                 <span>x</span> -->
                                 </div>
-                           
-                             </div>    
-                            </div>
-                            <div class="col-sm-12 col-md-12 col-lg-12 guessed">
-                                <p> Incorrect Guesses: </p>
-                            <div id="incorrectGuesses"> 
-                            <!-- This is where the string of letters guessed will go -->
-
-                            </div>
-
-                            </div>
-                             <div class="col-sm-12 col-md-12 col-lg-12 remaining">
-                                <p> Number of guesses remaining: </p>
-                            <div id="guessesRemaining"> 
-                            <!-- This is where the string of letters guessed will go -->
-
-                            </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <!-- The Losses panel -->
             <div class="col-md-2 col-lg-2 lossPanel">
                 <div class="panel panel-default">
                     <div class="panel-body">
-                        <div class="lossesStyle"> Losses
-                            <div id="losses"> </div>
+                        <div class="lossesStyle">
+                            <h1>Losses</h1>
+                            <div id="losses"> <span>0</span></div>
                         </div>
                     </div>
                 </div>
@@ -128,7 +132,7 @@
         <script type="text/javascript">
         $(document).ready(function() {
             $.backstretch([
-                "assets/images/bg-music.jpg", "assets/images/bg-guitar2.jpg", "assets/images/bg-acoustic.jpg", "assets/images/bg-piano.jpg", "assets/images/bg-bass.jpg"
+                "assets/images/bg-music.jpg", "assets/images/bg-guitar2.jpg", "assets/images/bg-acoustic.jpg", "assets/images/bg-piano.jpg"
             ], {
                 duration: 3000,
                 fade: 750

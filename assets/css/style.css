@@ -14,19 +14,45 @@ body {
 }
 
 .jumbotron {
+	font-family: 'Bowlby One SC', cursive;
 	background-color: transparent;	
 	text-align: center;
+	margin-bottom: 15px;
+	padding-top: 10px;
 }
 
 .jumbotron h1 {
-	color: red;
-
+ 
+	/*background: #ED4264; 
+    background: -webkit-linear-gradient(to left, #ED4264, #FFEDBC);
+    background: linear-gradient(to left, #ED4264, #FFEDBC);*/
+    background: -webkit-linear-gradient(#00d2ff, #3a7bd5);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+   -webkit-text-stroke-width: 3px;
+   -webkit-text-stroke-color: black;
 }
+
 
 /*h1 , .lossesStyle, .winsStyle, .modal {
 	font-family: 'Permanent Marker', cursive;
 
 }*/
+
+.jumbotron h3 {
+  position: absolute;
+  top: 13%;
+  right: 43%;
+  text-align: right;
+  font-size: 2.5em;
+  letter-spacing: -1px;
+  text-transform: capitalize;
+  -webkit-transform: skewY(-15deg);
+          transform: skewY(-15deg);
+  z-index: 1;
+  color: #FFAFBD;
+  text-shadow: 1px 1px #fff, -1px -1px #fff, -1px 1px #fff, 1px -1px #fff, 1px 0px #fff, -1px 0px #fff, 0px -1px #fff, 0px 1px #fff, 0px 0px 12px #ee91ae;
+}
 
 .panel {
 	background-color: rgb(204,204,204);
@@ -42,6 +68,12 @@ body {
 
 .guessed, .remaining {
 	text-align: center;
+	font-size: 20px;
+}
+
+#incorrectGuesses, #guessesRemaining {
+	font-size: 30px;
+
 }
 /*getting overridden and not working*/
 /*.winsPanel, .lossPanel {
@@ -50,12 +82,21 @@ body {
 
 #imageHolder {
 	height: 200px;
-	width:300px;
+	width:450px;
+}
+
+video {
+	height:200px;
+	width: 450px;
+	margin: auto auto;
+	padding-top: -20px;
+	/*vertical-align: center;*/
 }
 /*styles the blank letter spaces with a border bottom*/
 #guessBlanks{
 	
 	text-align: center;
+	margin-top: 50px;
 
 }
 /*Styles the word letters. Also look at putting in percentages for responsiveness*/
@@ -72,8 +113,12 @@ body {
 
 }
 .lossesStyle, .winsStyle {
-	font-size: 20px;
+	font-size: 40px;
 	text-align: center;
+}
+
+.lossesStyle h1, .winsStyle h1 {
+	text-decoration: underline;
 }
 
 .text-center {
@@ -96,11 +141,113 @@ body {
 		font-size: 25px;
 }
 
-/*not working right now*/
-#lettersGuessed, #guessesRemaining {
-	
 
+
+
+
+
+/*Styles the jumbotron header*/
+/*@import 'https://fonts.googleapis.com/css?family=Damion|Work+Sans:900';
+
+.text-outline(@h1border: 3px; @h1bordercolour: #fff;) {
+	text-shadow: @h1border 0px @h1bordercolour,
+	           	-@h1border 0px @h1bordercolour,
+	           	 0px @h1border @h1bordercolour,
+	           	0px -@h1border @h1bordercolour,
+	       @h1border @h1border @h1bordercolour,
+	     -@h1border -@h1border @h1bordercolour,
+	      @h1border -@h1border @h1bordercolour,
+	      -@h1border @h1border @h1bordercolour;
 }
+.neon-text(@color:#ee91ae;@width:1px;@outline:#fff;) {
+	color: @color;
+	text-shadow: @width @width @outline,
+						 -@width -@width @outline,
+							-@width @width @outline,
+						  @width -@width @outline,
+								  @width 0px @outline,
+							   -@width 0px @outline,
+							   0px -@width @outline,
+								  0px @width @outline,
+							    0px 0px 12px @color;
+}
+body, html {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	background-color: transparent;
+}
+
+h1, h3 {
+	margin: 0;
+	line-height: 1;
+}
+h1 {
+	display: inline-block;
+	font-family: 'Work Sans', sans-serif;
+}
+h3 {
+	display: inline-block;
+	font-family: 'Damion', cursive;
+}
+
+.content-cont {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.text-body {
+	position: relative;
+	display: inline-block;
+	font-size: 16px;
+	h1 {
+		position: relative;
+		text-transform: uppercase;
+		font-size: 5em;
+		z-index:1;
+		span {
+			color: transparent;
+			background: #ED4264; /* fallback for old browsers */
+/*background: -webkit-linear-gradient(to left, #ED4264 , #FFEDBC); /* Chrome 10-25, Safari 5.1-6 */
+/*background: linear-gradient(to left, #ED4264 , #FFEDBC);
+			// background: linear-gradient(#000000 0%,#113e87 22%,#10cccc 50%,#000000 51%,#e21ddc 78%,#e21ddc 78%,#ffffff 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			&:before {
+				content: attr(text);
+			}
+			&:after {
+				content: attr(text);
+				position: absolute;
+				top: 0;
+				left: 0;
+				.text-outline();
+				opacity: 0.2;
+			}
+		}
+	}
+	h3 {
+		// positioning
+		position: absolute;
+		top: 70%;
+		right: 20%;
+		text-align: right;
+		//styles
+		font-size: 2.5em;
+		letter-spacing: -1px;
+		text-transform: capitalize;
+		transform: skewY(-10deg);
+		z-index:1;
+
+		// colours
+		.neon-text();
+	} 
+}*/
+
 /*.modal-content {
 	height: 200px;
 }*/
